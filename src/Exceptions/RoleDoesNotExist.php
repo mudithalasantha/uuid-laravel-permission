@@ -11,7 +11,7 @@ class RoleDoesNotExist extends InvalidArgumentException
         return new static("There is no role named `{$roleName}`.");
     }
 
-    public static function withId(int $roleId)
+    public static function withId(string $roleId)
     {
         return new static("There is no role with id `{$roleId}`.");
     }

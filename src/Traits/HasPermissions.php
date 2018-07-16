@@ -112,7 +112,7 @@ trait HasPermissions
             );
         }
 
-        if (is_int($permission)) {
+        if (isValidUuid($permission)) {
             $permission = app(Permission::class)->findById(
                 $permission,
                 $guardName ?? $this->getDefaultGuardName()
@@ -194,7 +194,7 @@ trait HasPermissions
             }
         }
 
-        if (is_int($permission)) {
+        if (isValidUuid($permission)) {
             $permission = app(Permission::class)->findById($permission, $this->getDefaultGuardName());
             if (! $permission) {
                 return false;

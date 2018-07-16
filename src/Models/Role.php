@@ -92,7 +92,7 @@ class Role extends Model implements RoleContract
         return $role;
     }
 
-    public static function findById(int $id, $guardName = null): RoleContract
+    public static function findById(string $id, $guardName = null): RoleContract
     {
         $guardName = $guardName ?? Guard::getDefaultName(static::class);
 
@@ -141,7 +141,7 @@ class Role extends Model implements RoleContract
             $permission = app(Permission::class)->findByName($permission, $this->getDefaultGuardName());
         }
 
-        if (is_int($permission)) {
+        if (isValidUuid($permission)) {
             $permission = app(Permission::class)->findById($permission, $this->getDefaultGuardName());
         }
 
